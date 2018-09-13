@@ -15,7 +15,8 @@ public class ADT_List {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MyArrayList <String> myArray = new MyArrayList<String>();
+        System.out.println(myArray.tamanodelasecuencia);
     }
     
 }
