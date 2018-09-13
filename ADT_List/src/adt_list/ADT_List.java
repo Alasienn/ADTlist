@@ -36,6 +36,13 @@ public class ADT_List {
             System.out.print("["+elemento+"]");
         }
         
+        myArray.invertir();
+        System.out.println(myArray.sequenceSize);
+        for(Iterator<String> iterator = myArray.iterator();iterator.hasNext();){
+            String elemento = iterator.next();
+            System.out.print("["+elemento+"]");
+        }
+        
     }
     
 }

@@ -70,5 +70,18 @@ public class MyArrayList<E> implements Iterable<E>{
         }
     
     }
+    public void invertir() {
+        E[] tmpSequence = (E[]) new Object[sequenceSize];
+        //Object[] invert = new Object[array.length];
+        int maximo = sequence.length;
+ 
+        for (int i = 0; i<sequence.length; i++) {
+            tmpSequence[i]=this.sequence[maximo - 1];
+            this.sequence[maximo - 1] = sequence[i];
+            this.sequence[i]=tmpSequence[maximo - 1];
+            maximo--;
+        }
+    }
+
     
 }
