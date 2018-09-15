@@ -36,13 +36,36 @@ public class ADT_List {
             System.out.print("["+elemento+"]");
         }
         
-        myArray.invertir();
+        myArray.reverse();
+        System.out.println("");
         System.out.println(myArray.sequenceSize);
         for(Iterator<String> iterator = myArray.iterator();iterator.hasNext();){
             String elemento = iterator.next();
             System.out.print("["+elemento+"]");
         }
         
+        System.out.println("");
+        MyArrayList <String> my2Array = new MyArrayList<String>();
+        my2Array.add(0, "a");
+        my2Array.add(1, "b");
+        my2Array.add(2, "c");
+        my2Array.add(3, "d");
+        my2Array.add(4, "e");
+        my2Array.add(5, "f");
+        my2Array.add(6, "g");
+        my2Array.add(7, "h");
+        my2Array.add(8, "i");
+        my2Array.add(9, "j");
+        
+        for(Iterator<String> iterator = my2Array.iterator();iterator.hasNext();){
+            String elemento = iterator.next();
+            System.out.print("[" + elemento + "]");
+        }
+        System.out.println("\nConcat");
+        my2Array.concat(myArray);
+
     }
+    
+    
     
 }

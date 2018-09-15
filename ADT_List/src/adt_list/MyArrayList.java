@@ -5,6 +5,7 @@
  */
 package adt_list;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -52,7 +53,7 @@ public class MyArrayList<E> implements Iterable<E>{
     public Iterator iterator() {
         return new MyArrayListIterator();
     }
-    
+
     public class MyArrayListIterator implements Iterator<E>{
         private int currentPos = 0;
                 
@@ -70,18 +71,47 @@ public class MyArrayList<E> implements Iterable<E>{
         }
     
     }
-    public void invertir() {
+    public void reverse() {
         E[] tmpSequence = (E[]) new Object[sequenceSize];
-        //Object[] invert = new Object[array.length];
         int maximo = sequence.length;
- 
-        for (int i = 0; i<sequence.length; i++) {
-            tmpSequence[i]=this.sequence[maximo - 1];
-            this.sequence[maximo - 1] = sequence[i];
-            this.sequence[i]=tmpSequence[maximo - 1];
+        for (int i = 0; i < sequence.length; i++) {
+            tmpSequence[i] = sequence[i];
+        }
+
+        for (int i = 0; i < sequence.length; i++) {
+            this.sequence[i] = tmpSequence[maximo - 1];
             maximo--;
         }
     }
-
+    
+//    public E concat(E[] arrayone){
+//        E[] arraytwo = (E[]) new Object[sequenceSize];
+//        int l = arrayone.length + arraytwo.length;
+//        E[] c = (E[]) new Object[l];
+//        for (int i = 0; i < c.length; i++) {
+//            if(i<arrayone.length){
+//                c[i] = arrayone[i];
+//            }else{
+//                c[i] = arraytwo[i];
+//            }
+//        }
+//        return (E)c;
+//    }
+    
+    public MyArrayList concat(MyArrayList<String> arrayone){
+        int l = arrayone.sequenceSize + this.sequenceSize;
+        MyArrayList <String> c = new MyArrayList<String>();
+        c.ensureCapacity(l);
+        int aux = arrayone.sequenceSize;
+        for (Iterator<String> iterator = this.iterator(); iterator.hasNext();) {
+            String elemento = iterator.next();
+            System.out.print("[" + elemento + "]");
+        }
+        for (Iterator<String> iterator = arrayone.iterator(); iterator.hasNext();) {
+            String elemento = iterator.next();
+            System.out.print("[" + elemento + "]");
+        }
+        return c;
+    }
     
 }
